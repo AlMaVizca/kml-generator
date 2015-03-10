@@ -1,4 +1,9 @@
-* TODO kml-generator
+* TODO kml-generator [2/5]
+- [X] Create project
+- [X] Add templates and static files
+- [ ] Generate the content
+- [ ] Mark position to generate location
+- [ ] Download kml file
 
 * kml-generator description
 
