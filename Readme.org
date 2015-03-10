@@ -1,0 +1,10 @@
+* TODO kml-generator
+
+* kml-generator description
+
+This software will be a tool to generate kml route.
+
+Objectives:
+
+- Web interface
+- User insert addresses or lat/long and get kml route file
