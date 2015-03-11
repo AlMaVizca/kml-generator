@@ -1,52 +1,60 @@
+var map;
+var markers = [];
+
+
 $(document).ready(function(){/* google maps -----------------------------------------------------*/
 google.maps.event.addDomListener(window, 'load', initialize);
 
 function initialize() {
 
-  /* position Amsterdam */
+    /* position La Plata */
     var latlng = new google.maps.LatLng(-34.9205284,-57.9531702);
 
-  var mapOptions = {
-    center: latlng,
-    scrollWheel: false,
-    zoom: 13
-  };
+    var mapOptions = {
+        center: latlng,
+        scrollWheel: false,
+        zoom: 13
+    };
 
 
-  var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+    map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
 
-  var marker = new google.maps.Marker({
-    position: latlng,
-    url: '/',
-    animation: google.maps.Animation.DROP
-  });
-
-    // var drawingManager = new google.maps.drawing.DrawingManager({
-    //     drawingMode: google.maps.drawing.OverlayType.MARKER,
-    //     drawingControl: true,
-    //     drawingControlOptions: {
-    //         position: google.maps.ControlPosition.TOP_CENTER,
-    //         drawingModes: [
-    //             google.maps.drawing.OverlayType.MARKER,
-    //         ]}
-    // });
-
-    var drawingManager = new google.maps.drawing.DrawingManager({
-        drawingMode: google.maps.drawing.OverlayType.MARKER,
-        drawingControl: true,
-        drawingControlOptions: {
-            position: google.maps.ControlPosition.TOP_CENTER,
-            drawingModes: [
-                google.maps.drawing.OverlayType.MARKER
-            ]
-        },
-        markerOptions: {
-            editable: true,
-            draggable: true
-        }
+    google.maps.event.addListener(map,'click', function(event) {
+        addMarker(event.latLng);
     });
 
-  drawingManager.setMap(map);
 };
 /* end google maps -----------------------------------------------------*/
 });
+// Add a marker to the map and push to the array.
+function addMarker(location) {
+    var marker = new google.maps.Marker({
+        position: location,
+        map: map
+    });
+    markers.push(marker);
+}
+
+// Sets the map on all markers in the array.
+function setAllMap(map) {
+    for (var i = 0; i < markers.length; i++) {
+        markers[i].setMap(map);
+    }
+}
+
+// Removes the markers from the map, but keeps them in the array.
+function clearMarkers() {
+    setAllMap(null);
+    console.log(markers);
+}
+
+// Shows any markers currently in the array.
+function showMarkers() {
+    setAllMap(map);
+}
+
+// Deletes all markers in the array by removing references to them.
+function deleteMarkers() {
+    clearMarkers();
+    markers = [];
+}

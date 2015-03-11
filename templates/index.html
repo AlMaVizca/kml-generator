@@ -47,6 +47,12 @@
      </div> -->
 </div>
 
+<div id="panel">
+  <input onclick="clearMarkers();" type=button value="Hide Markers">
+  <input onclick="showMarkers();" type=button value="Show All Markers">
+  <input onclick="deleteMarkers();" type=button value="Delete Markers">
+</div>
+
 <div id="map-canvas"></div>
 <div class="container-fluid" id="main">
   <div class="row">
@@ -74,9 +80,9 @@
 	<!-- script references -->
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
 		<script src="js/bootstrap.min.js"></script>
-		<script src="http://maps.googleapis.com/maps/api/js?sensor=false&extension=.js&output=embed"></script>
+		<script src="http://maps.googleapis.com/maps/api/js?sensor=false&extension=.js&libraries=drawing&output=embed"></script>
 		<script src="js/scripts.js"></script>
-                <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=drawing"></script>
+                <!-- <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=drawing"></script> -->
 
 	</body>
 </html>

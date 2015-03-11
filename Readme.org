@@ -1,4 +1,5 @@
 * TODO kml-generator [2/5]
+
 - [X] Create project
 - [X] Add templates and static files
 - [ ] Generate the content

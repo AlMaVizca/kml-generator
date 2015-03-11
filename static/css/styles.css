@@ -66,3 +66,14 @@ body{
     bottom:0;
     overflow:hidden;
 }
+
+#panel {
+  position: absolute;
+  bottom: 5px;
+  left: 50%;
+  margin-left: -100px;
+  z-index: 5;
+  background-color: #fff;
+  padding: 5px;
+  border: 1px solid #999;
+}
