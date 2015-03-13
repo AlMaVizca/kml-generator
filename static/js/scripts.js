@@ -3,6 +3,13 @@ var markers = [];
 
 
 $(document).ready(function(){/* google maps -----------------------------------------------------*/
+
+$('li').click(function(){
+    $(this).addClass('isSelected');
+});
+
+
+
 google.maps.event.addDomListener(window, 'load', initialize);
 
 function initialize() {
@@ -24,15 +31,20 @@ function initialize() {
     });
 
 };
-/* end google maps -----------------------------------------------------*/
+    /* end google maps -----------------------------------------------------*/
 });
+
 // Add a marker to the map and push to the array.
 function addMarker(location) {
     var marker = new google.maps.Marker({
         position: location,
-        map: map
+        map: map,
+        draggable: true
     });
     markers.push(marker);
+    var newMarker = $("<li>").text(location);
+    newMarker.addClass("panel-heading");
+    newMarker.appendTo(".markers");
 }
 
 // Sets the map on all markers in the array.
